@@ -6,23 +6,25 @@
     <title>Users</title>
 </head>
 <body>
-<h1>Users</h1>
-<table>
+<h2>Users</h2>
+<table border="1">
     <thead>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone number</th>
-<!--        <th>Operations</th>-->
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone number</th>
+    <th>Operations</th>
     </thead>
     <tbody>
     <tr th:each="user:${usersList}">
-        <td th:utext="$user.getId()}">ID</td>
-        <td th:utext="$user.getName()}">Name</td>
-        <td th:utext="$user.getEmail()}">Email</td>
-        <td th:utext="$user.getPhoneNumber()}">Phone number</td>
-
+        <td th:utext="${user.id}">ID</td>
+        <td th:utext="${user.name}">Name</td>
+        <td th:utext="${user.email}">Email</td>
+        <td th:utext="${user.phoneNumber}">Phone number</td>
+        <td><a th:href="@{/users/edit(id=${user.id})}">Edit</a></td>
+        <td><a th:href="@{/users/remove(id=${user.id})}">Remove</a></td>
     </tr>
+    <a th:href="@{/users/new}">Add new User</a>
     </tbody>
 
 </table>

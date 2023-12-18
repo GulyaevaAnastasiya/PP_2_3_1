@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Properties;
 
 
-
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement

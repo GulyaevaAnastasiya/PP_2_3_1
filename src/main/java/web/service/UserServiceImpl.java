@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
@@ -34,8 +34,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     @Transactional
-    public void delete(int id) {
+    public User delete(int id) {
         userDao.delete(id);
+        return null;
     }
 
     @Override

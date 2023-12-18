@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Update user</title>
 </head>
 <body>
+<form th:method="POST" th:action="@{/users/edit(id=${user.id})}" th:object="${user}">
+
+    <input type="hidden" name="id" th:value="${user.id}"/>
+
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name" name="name"/>
+
+    <label for="name">Enter email: </label>
+    <input type="text" th:field="*{email}" id="email" name="email"/>
+
+
+    <label for="name">Enter phone number: </label>
+    <input type="text" th:field="*{phoneNumber}" id="phone_number" name="phone_number"/>
+
+    <td colspan="2"><input type="submit" value="Save"/></td>
+</form>
+
 
 </body>
 </html>
