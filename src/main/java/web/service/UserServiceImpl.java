@@ -14,7 +14,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-
     @Override
     @Transactional
     public void add(User user) {

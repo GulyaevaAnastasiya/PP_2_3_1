@@ -11,13 +11,16 @@
 
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name" name="name"/>
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
 
     <label for="name">Enter email: </label>
     <input type="text" th:field="*{email}" id="email" name="email"/>
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
 
 
     <label for="name">Enter phone number: </label>
     <input type="text" th:field="*{phoneNumber}" id="phone_number" name="phone_number"/>
+    <div style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Phone number error</div>
 
     <td colspan="2"><input type="submit" value="Save"/></td>
 </form>

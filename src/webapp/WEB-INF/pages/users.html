@@ -22,11 +22,13 @@
         <td th:utext="${user.email}">Email</td>
         <td th:utext="${user.phoneNumber}">Phone number</td>
         <td><a th:href="@{/users/edit(id=${user.id})}">Edit</a></td>
-        <td><a th:href="@{/users/remove(id=${user.id})}">Remove</a></td>
+        <td><form th:action="@{/users/remove}" th:method="post">
+            <input type="hidden" name="id" th:value="${user.id}" />
+            <button type="submit">Remove</button>
+        </form></td>
     </tr>
     <a th:href="@{/users/new}">Add new User</a>
     </tbody>
-
 </table>
 
 </body>

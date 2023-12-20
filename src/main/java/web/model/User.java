@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 @Entity
@@ -16,18 +17,23 @@ public class User {
     private int id;
 
     @Column(name = "name")
+    @NotEmpty (message = "Name shouldn't be empty")
+    @Size (min = 2, max = 30, message = "Name should be between 2 and 30 charscters")
     private String name;
 
     @Column(name = "email")
+    @NotEmpty (message = "Email shouldn't be empty")
+    @Email(message = "Email should be valid")
     private String email;
 
     @Column(name = "phone_number")
-    private Long phoneNumber;
+    @Pattern(regexp = "^[\\d\\+][\\d\\(\\)\\ -]{4,14}\\d$", message = "Wrong phone number format")
+    private String phoneNumber;
 
     public User() {
     }
 
-    public User(String name, String email, Long phoneNumber) {
+    public User(String name, String email, String phoneNumber) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -57,11 +63,11 @@ public class User {
         this.email = email;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
